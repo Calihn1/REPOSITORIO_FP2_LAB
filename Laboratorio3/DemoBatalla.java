@@ -98,9 +98,9 @@ public class DemoBatalla {
         for(int i = 0; i < flota1.length; i++) {
             int posCambio1 = (int)(Math.random() * flota1.length);
             int posCambio2 = (int)(Math.random() * flota1.length);
-            Nave nave = flota[posCambio2];
-            flota[posCambio2] = flota[posCambio1];
-            flota[posCambio1] = nave;
+            Nave nave = flota1[posCambio2];
+            flota1[posCambio2] = flota1[posCambio1];
+            flota1[posCambio1] = nave;
         }
         return flota1;
     }
