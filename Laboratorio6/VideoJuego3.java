@@ -37,6 +37,8 @@ public class VideoJuego3 {
 
         rankingPorVidaSoldados1(ejercito1);
         rankingPorVidaSoldados2(ejercito2);
+        
+        decidirEjercitoGanador(ejercito1, ejercito2);
     }
 
     public static void generarEspaciosArrayList(ArrayList<ArrayList<Soldado>> tablero) {
@@ -147,9 +149,9 @@ public class VideoJuego3 {
 
     // Muestra todos los soldados en el arreglo
     public static void mostrarSoldados(ArrayList<Soldado> ejercito) {
-        System.out.println();
+    	System.out.println();
         for (Soldado s : ejercito)
-            System.out.print(s);
+            System.out.println(s);
     }
 
     // Método que ordena los soldados por vida y muestra el ranking
@@ -192,6 +194,27 @@ public class VideoJuego3 {
                 }
             }
         }
+    }
+    
+    public static void decidirEjercitoGanador(ArrayList<Soldado> ejer1, ArrayList<Soldado> ejer2) {
+    	if(ejer1.size() > ejer2.size()) { 
+    		System.out.println("\nEl ejercito ganador es el 1: ");
+    		mostrarSoldados(ejer1);
+    	}
+    	else if(ejer1.size() < ejer2.size()) {
+    		System.out.println("\nEl ejercito ganador es el 2: ");
+    		mostrarSoldados(ejer2);
+    	}
+    	else if(promedioVidaSoldados(ejer1) > promedioVidaSoldados(ejer2)) {
+    		System.out.println("\nEl ejercito ganador es el 1: ");
+    		mostrarSoldados(ejer1);
+    	}
+    	else if(promedioVidaSoldados(ejer1) < promedioVidaSoldados(ejer2)) {
+    		System.out.println("\nEl ejercito ganador es el 2: ");
+    		mostrarSoldados(ejer2);
+    	}
+    	else
+    		System.out.println("\nEs un empate");
     }
 }
 
