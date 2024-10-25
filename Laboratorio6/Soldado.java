@@ -69,9 +69,9 @@ public class Soldado {
     public String toString() {
         // Si la fila es menor a 10, se ajusta el formato para alinear correctamente las columnas
         if (fila < 10) {
-            return("\nNombre: " + nombre + "   Vida: " + vida + "   Fila: " + fila + "    Columna: " + columna);
+            return("Nombre: " + nombre + "   Vida: " + vida + "   Fila: " + fila + "    Columna: " + columna);
         } else {
-            return("\nNombre: " + nombre + "   Vida: " + vida + "   Fila: " + fila + "   Columna: " + columna);
+            return("Nombre: " + nombre + "   Vida: " + vida + "   Fila: " + fila + "   Columna: " + columna);
         }
     }
 
