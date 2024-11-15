@@ -1,6 +1,6 @@
 package Laboratorio7;
 import java.util.ArrayList;
-/* Laboratorio Nr6 - Ejercicio1
+/* Laboratorio Nr7 - Ejercicio1
  * Autor: Hilacondo Begazo, Emanuel David
  * Colaboró: con nadie
  * Tiempo: --
@@ -22,11 +22,11 @@ public class Soldado {
 
     // Constructor que asigna un nombre único al soldado basado en el ejército al que pertenece
     Soldado() {
-        if (VideoJuego5.numEjercito == 1) {
-            nombre = "soldado" + Soldado.contador + "x" + VideoJuego5.numEjercito;
+        if (VideoJuego4.numEjercito == 1) {
+            nombre = "soldado" + Soldado.contador + "x" + VideoJuego4.numEjercito;
             Soldado.contador++;
         } else {
-            nombre = "soldado" + Soldado.contador+ "x" + VideoJuego5.numEjercito;
+            nombre = "soldado" + Soldado.contador+ "x" + VideoJuego4.numEjercito;
             Soldado.contador++;
         }
     }
