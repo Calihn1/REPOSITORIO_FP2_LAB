@@ -1,7 +1,7 @@
 package Laboratorio8;
 
 import java.util.*;
-/* Laboratorio Nr7 - Ejercicio1
+/* Laboratorio Nr8 - Ejercicio1
  * Autor: Hilacondo Begazo, Emanuel David
  * Colaboró: con nadie
  * Tiempo: --
@@ -28,8 +28,6 @@ public class Soldado {
         }
     }
     
-    Soldado(boolean cambio) { }
-
     public static void reiniciarContadorSoldados() {
         Soldado.contador = 0;
     }
@@ -79,9 +77,5 @@ public class Soldado {
             return("Nombre: " + nombre + "   Vida: " + vida + "   Fila: " + fila + "   Columna: " + columna);
         }
     }
-
-
-
-
 }
 
