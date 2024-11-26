@@ -38,6 +38,7 @@ public class VideoJuego5 {
             // Impresión del tablero mostrando las posiciones de los soldados
             imprimirTablero(tablero);
    
+            /*
             // Mostrar el soldado con mayor vida en cada ejército
             System.out.print("\nSoldados con mayor vida del ejército 1 y 2:");
             mostrarSoldadoMayorVida(ejercito1);
@@ -60,6 +61,8 @@ public class VideoJuego5 {
            
             // Determinar y mostrar el ejército ganador
             decidirEjercitoGanador(ejercito1, ejercito2);
+            
+            */
            
             //Se pregunta si el usuario decide volver a jugar o no (iteración)
             System.out.print("Desea seguir jugando? (S/N): ");
@@ -100,7 +103,7 @@ public class VideoJuego5 {
        while (posicionOcupada) {
     	   soldado.generarFila(tamanoTablero);
            soldado.generarColumna(tamanoTablero);
-           contrasenia = Integer.toString(soldado.getFila() - 1) + Integer.toString(soldado.getColumna() - 1);
+           contrasenia = Integer.toString(soldado.getFila() - 1) + "|" + Integer.toString(soldado.getColumna() - 1);
            posicionOcupada = soldado.comprobarPosicion(ejercito, contrasenia);
        }
        
@@ -121,10 +124,15 @@ public class VideoJuego5 {
 
     // Coloca los soldados en el tablero en base a sus posiciones asignadas
     public static void llenarTablero(Soldado[][] tablero, HashMap<String,Soldado> ejercito) {
-        for (Soldado s : ejercito) {
-            int fila = s.getFila() - Soldado.VALOR_MOVIBLE; // Ajusta la fila para usar como índice
-            int columna = s.getColumna() - Soldado.VALOR_MOVIBLE; // Ajusta la columna para usar como índice
-            tablero[fila][columna] = s; // Coloca el soldado en la posición correspondiente
+        for (String s : ejercito.keySet()) {
+        	// Extraer fila y columna de la clave
+            int separador = s.indexOf("|");
+            String fil = s.substring(0, separador);
+            String col = s.substring(separador + 1);
+            
+            int fila = Integer.parseInt(fil);
+            int columna = Integer.parseInt(col);
+            tablero[fila][columna] = ejercito.get(s); // Coloca el soldado en la posición correspondiente
         }
     }
 
