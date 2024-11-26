@@ -1,7 +1,7 @@
 package Laboratorio8;
 
 import java.util.*;
-/* Laboratorio Nr7 - Ejercicio1
+/* Laboratorio Nr8 - Ejercicio1
  * Autor: Hilacondo Begazo, Emanuel David
  * Colaboró: con nadie
  * Tiempo: --
@@ -34,35 +34,38 @@ public class VideoJuego5 {
             Soldado.reiniciarContadorSoldados();
             llenarAtributosSoldados(ejercito2);
             llenarTablero(tablero, ejercito2);
+            
+            comprobarPosicionSoldado(ejercito1, ejercito2);
            
             // Impresión del tablero mostrando las posiciones de los soldados
             imprimirTablero(tablero);
-   
-            /*
+            
+            ArrayList<Soldado> ejercit1 = convertirArrayListEjercito(ejercito1);
+            
+            ArrayList<Soldado> ejercit2 = convertirArrayListEjercito(ejercito2);
+            
             // Mostrar el soldado con mayor vida en cada ejército
             System.out.print("\nSoldados con mayor vida del ejército 1 y 2:");
-            mostrarSoldadoMayorVida(ejercito1);
-            mostrarSoldadoMayorVida(ejercito2);
+            mostrarSoldadoMayorVida(ejercit1);
+            mostrarSoldadoMayorVida(ejercit2);
            
             // Cálculo e impresión del promedio de vida de los soldados en cada ejército
-            System.out.println("\nPromedio de vida de los soldados del ejercito 1: " + promedioVidaSoldados(ejercito1));
-            System.out.println("\nPromedio de vida de los soldados del ejercito 2: " + promedioVidaSoldados(ejercito2));
+            System.out.println("\nPromedio de vida de los soldados del ejercito 1: " + promedioVidaSoldados(ejercit1));
+            System.out.println("\nPromedio de vida de los soldados del ejercito 2: " + promedioVidaSoldados(ejercit2));
            
             // Mostrar detalles de cada soldado en los ejércitos
             System.out.print("\nMostrar ejército 1 y 2:");
-            mostrarSoldados(ejercito1);
-            mostrarSoldados(ejercito2);
+            mostrarSoldados(ejercit1);
+            mostrarSoldados(ejercit2);
    
    
             // Ordenamiento y visualización del ranking de soldados por vida para cada ejército
             System.out.print("\nRankear de mayor a menor vida del soldado del ejército 1 y 2:");
-            rankingPorVidaSoldados1(ejercito1);
-            rankingPorVidaSoldados2(ejercito2);
+            rankingPorVidaSoldados1(ejercit1);
+            rankingPorVidaSoldados2(ejercit2);
            
             // Determinar y mostrar el ejército ganador
-            decidirEjercitoGanador(ejercito1, ejercito2);
-            
-            */
+            decidirEjercitoGanador(ejercit1, ejercit2);
            
             //Se pregunta si el usuario decide volver a jugar o no (iteración)
             System.out.print("Desea seguir jugando? (S/N): ");
@@ -185,7 +188,12 @@ public class VideoJuego5 {
             System.out.print("° " + soldado.getVida() + "  "); // "°" para soldados del ejército 2
         }
     }
-
+    
+    public static ArrayList<Soldado> convertirArrayListEjercito(HashMap<String,Soldado> ejercito) {
+    	ArrayList <Soldado> solds = new ArrayList<>(ejercito.values());
+    	return solds;
+    }
+    
     // Muestra el soldado con la mayor cantidad de vida en el ejército dado
     public static void mostrarSoldadoMayorVida(ArrayList<Soldado> ejercito) {
          Soldado soldadoMasVida = ejercito.get(0);
